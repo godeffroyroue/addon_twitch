@@ -9,7 +9,7 @@ const { catchErrors } = require('../handlers/errorHandlers')
 
 const { getCourses, getCourse, getLesson, getCoursesByCategory } = require('./courses')
 const { getSettings, postSettings } = require('./settings')
-const { getLandingPage, getTest } = require('./landingPage')
+const { getLandingPage, getTest, openJoin, closeJoin } = require('./landingPage')
 const { getImprint } = require('./imprint')
 
 // Display settings in case of invalid credentials
@@ -24,6 +24,8 @@ const { getImprint } = require('./imprint')
 // GET the home landing page
 router.all('/', getLandingPage)
 router.all('/test', getTest)
+router.all('/api/openjoin', openJoin)
+router.all('/api/closejoin', closeJoin)
 
 // // Courses routes
 // router.get('/courses', catchErrors(getCourses))
