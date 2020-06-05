@@ -13,13 +13,13 @@ const { getLandingPage } = require('./landingPage')
 const { getImprint } = require('./imprint')
 
 // Display settings in case of invalid credentials
-router.all('*', async (request, response, next) => {
-  if (response.locals.forceSettingsRoute) {
-    await getSettings(request, response, next)
-    return
-  }
-  next()
-})
+// router.all('*', async (request, response, next) => {
+//   if (response.locals.forceSettingsRoute) {
+//     await getSettings(request, response, next)
+//     return
+//   }
+//   next()
+// })
 
 // GET the home landing page
 router.all('/', getLandingPage)
