@@ -1,26 +1,52 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "Server API for Trello Project",
-  "main": "server.js",
+  "name": "example-contentful-theExampleApp-js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:watch": "nodemon ./bin/www --ignore public/",
+    "start:dev": "node ./bin/www",
+    "debug": "node debug ./bin/www",
+    "start": "NODE_ENV=production node ./bin/www",
+    "start:production": "NODE_ENV=production node ./bin/www",
+    "lint": "eslint ./app.js routes",
+    "format": "eslint --fix . bin --ignore public node_modules",
+    "pretest": "npm run lint",
+    "test": "npm run test:unit && npm run test:integration && npm run test:e2e",
+    "test:e2e": "node test/run-e2e-test.js",
+    "test:e2e:dev": "node test/run-e2e-test.js --dev",
+    "test:integration": "jest test/integration",
+    "test:integration:watch": "jest test/integration --watch",
+    "test:unit": "jest test/unit",
+    "test:unit:watch": "jest test/unit --watch"
   },
-  "author": "God & Marc",
-  "license": "ISC",
+  "engines": {
+    "node": ">=8.9.3"
+  },
   "dependencies": {
-    "apidoc": "^0.23.0",
-    "async": "^1.5.0",
-    "axios": "^0.19.0",
-    "bcrypt": "^4.0.1",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "ip": "^1.1.5",
-    "multer": "^1.4.2",
-    "nodemailer": "^6.3.1",
-    "pg": "^4.4.3",
-    "request": "^2.88.0"
+    "body-parser": "^1.18.2",
+    "contentful": "^6.0.0",
+    "cookie-parser": "~1.4.3",
+    "dotenv": "^5.0.0",
+    "execa": "^0.9.0",
+    "express": "^4.16.2",
+    "helmet": "^3.11.0",
+    "lodash": "^4.17.5",
+    "marked": "^0.3.16",
+    "morgan": "^1.9.1",
+    "pug": "~2.0.0-beta6"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "cookie": "^0.3.1",
+    "eslint": "^4.18.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^22.4.0",
+    "nodemon": "^1.18.9",
+    "supertest": "^3.0.0",
+    "yargs": "^11.0.0"
   }
 }

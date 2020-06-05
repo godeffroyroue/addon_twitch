@@ -1,10 +1,15 @@
-FROM node:10
-RUN mkdir app
-COPY /api/ /server/api
-COPY server.js /server
-COPY database.js /server
-COPY package.json /server
-WORKDIR /server
+FROM node:9
+
+WORKDIR /app
+
+RUN npm install -g contentful-cli
+
+COPY package.json .
 RUN npm install
-EXPOSE 7070
-CMD npm start
+
+COPY . .
+
+USER node
+EXPOSE 3000
+
+CMD ["npm", "run", "start:dev"]
