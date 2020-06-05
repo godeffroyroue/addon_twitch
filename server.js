@@ -32,7 +32,7 @@ app.use(express.static('public'));
 var routes = require('./api/routes/Routes'); //importing route
 
 routes(app);
-Wekin
+
 app.listen(port, function(){
 	console.log("API Run into http://localhost:"+port+"\n"); 
 });
