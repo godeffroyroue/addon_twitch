@@ -9,5 +9,9 @@ const attachEntryState = require('../lib/entry-state')
 const shouldAttachEntryState = require('../lib/should-attach-entry-state')
 
 module.exports.getLandingPage = async (req, res) => {
-  res.send(200).json({"lol": "Serveur opé"});
+  res.sendStatus(200).json({"lol": "Serveur opé"});
+}
+
+module.exports.getTest = async (req, res) => {
+  res.json({"Streamer": "Gveriz"});
 }

@@ -8,7 +8,7 @@ const querystring = require('querystring')
 const helmet = require('helmet')
 
 // Load environment variables using dotenv
-require('dotenv').config({ path: 'variables.env' })
+// require('dotenv').config({ path: 'variables.env' })
 
 const helpers = require('./helpers')
 const { translate, initializeTranslations, setFallbackLocale } = require('./i18n/i18n')
@@ -24,15 +24,15 @@ const SETTINGS_NAME = 'theExampleAppSettings'
 const app = express()
 
 // View engine setup
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'pug')
+// app.set('views', path.join(__dirname, 'views'))
+// app.set('view engine', 'pug')
 
-app.use(logger('dev'))
-app.use(helmet())
+// app.use(logger('dev'))
+// app.use(helmet())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser())
-app.use(express.static(path.join(__dirname, 'public')))
+// app.use(express.static(path.join(__dirname, 'public')))
 
 // Force all requests on production to be served over https
 // app.use(function (req, res, next) {
@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 // })
 
 // Set our application settings based on environment variables or query parameters
-app.use(settings)
+// app.use(settings)
 
 // Make data available for our views to consume
 // app.use(catchErrors(async function (request, response, next) {
@@ -133,7 +133,7 @@ app.use(settings)
 //   next()
 // }))
 
-app.use(breadcrumb())
+// app.use(breadcrumb())
 
 // Initialize the route handling
 // Check ./routes/index.js to get a list of all implemented routes
