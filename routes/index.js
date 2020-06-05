@@ -22,7 +22,7 @@ router.all('*', async (request, response, next) => {
 })
 
 // GET the home landing page
-router.all('/', catchErrors(getLandingPage))
+router.all('/', getLandingPage)
 
 // // Courses routes
 // router.get('/courses', catchErrors(getCourses))
